@@ -3,3 +3,10 @@
   min-height: 50vh;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .AboutUs {
+    width: 90vw;
+    margin: 0 auto;
+}
+}

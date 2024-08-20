@@ -70,3 +70,19 @@
 .Footer ul:nth-of-type(3) li > div {
   display: flex;
 }
+
+@media (max-width: 768px) {
+  .Footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Footer ul {
+    padding: 0;
+    width: 50%;
+  }
+
+  .Footer ul:nth-of-type(2) {
+    display: none;
+  }
+}

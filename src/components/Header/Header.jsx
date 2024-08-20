@@ -1,6 +1,6 @@
 import './Header.css';
 import { Link, Outlet } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Exchange from '../../assets/logo-expres-xchange-01-1-e1693426771150.png'
@@ -15,10 +15,6 @@ function Header() {
     function showBurger() {
         setBurger((prev) => !prev)
     }
-
-    useEffect(() => {
-        console.log(isBurger)
-    }, [isBurger])
 
     return (
         <div className='header-wrap'>

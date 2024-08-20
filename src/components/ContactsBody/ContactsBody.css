@@ -44,3 +44,21 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .ContactsBody {
+    padding: 0 20px 20px;
+    width: 80vw;
+  }
+
+  .ContactsBody > ul {
+    flex-direction: column;
+    border-bottom: 1px solid gray;
+  }
+
+  .ContactsBody li {
+    border-right: none;
+    letter-spacing: 1.5px;
+    margin: 0 0 5px 0;
+  }
+}

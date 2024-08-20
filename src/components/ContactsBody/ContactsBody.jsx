@@ -11,10 +11,6 @@ function ContactsBody() {
         GetRequest(setData)
     }, []);
 
-    useEffect(() => {
-        console.log(data)
-    }, [data])
-
     if (data.length === 0) {
         return (
             <div className='ContactsBody-load'>{t('Loading...')}</div>
