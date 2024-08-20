@@ -35,7 +35,7 @@
   z-index: 999;
   top: 50%;
   transform: translateY(-50%);
-  right: 50px;
+  right: 30px;
   display: none;
   flex-direction: column;
   cursor: pointer;
@@ -52,7 +52,7 @@
   z-index: 999;
   top: 50%;
   transform: translateY(-50%);
-  right: 50px;
+  right: 30px;
   background: none;
   border: 0;
   -webkit-transform: translateY(-50%);
@@ -173,7 +173,7 @@
     height: max-content;
     align-items: baseline;
     opacity: 0.9;
-    width: 60%;
+    width: 85%;
     padding: 20px 0 20px 50px;
     border-radius: 0 0 0 10px;
     -webkit-border-radius: 0 0 0 10px;
