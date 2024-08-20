@@ -1,0 +1,72 @@
+.Footer {
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
+  background-color: rgb(231, 231, 231);
+  height: max-content;
+  width: 100%;
+  margin: 20px 0 0 0;
+  padding: 10px 0;
+  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  -ms-border-radius: 10px 10px 0 0;
+  -o-border-radius: 10px 10px 0 0;
+}
+
+.Footer ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.Footer ul li {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-family: cursive;
+}
+
+.Footer ul li:first-child {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.Footer ul:nth-of-type(2) li button {
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+  padding: 0;
+  font-family: cursive;
+  font-size: 16px;
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+}
+
+.Footer ul:nth-of-type(2) li button:hover {
+  color: blue;
+}
+
+.Footer ul:nth-of-type(3) li button {
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  background-color: inherit;
+  padding: 0;
+  margin-left: 10px;
+  width: max-content;
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+}
+
+.Footer ul:nth-of-type(3) li > div {
+  display: flex;
+}

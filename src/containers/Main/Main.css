@@ -1,0 +1,70 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 50vh;
+  padding: 0 50px;
+}
+
+.App > div > input {
+  width: 300px;
+  height: 35px;
+  outline: none;
+  background-color: gainsboro;
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+  padding: 0 10px 0;
+  margin-bottom: 20px;
+  border: 1px solid rgb(184, 184, 184);
+}
+
+.App > div > input:focus {
+  border: 1px solid rgb(119, 218, 231);
+  background-color: white;
+}
+
+.App > div > button {
+  width: 150px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: rgb(119, 218, 231);
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.App > div > button:hover {
+  background-color: rgb(3, 194, 219);
+}
+
+.App > div {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: max-content;
+  padding: 20px 50px 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .App {
+    flex-direction: column;
+    padding: 0;
+  }
+}

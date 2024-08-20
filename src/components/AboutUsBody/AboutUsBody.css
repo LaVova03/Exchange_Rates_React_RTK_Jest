@@ -1,0 +1,24 @@
+.AboutUsBody {
+  width: 70%;
+  margin: 0;
+  background: rgb(70, 69, 69);
+  padding: 30px 50px;
+  border-radius: 10px;
+  color: white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.AboutUsBody li {
+  margin: 20px 0;
+  list-style: circle;
+  font-size: 16px;
+  font-family: cursive;
+}
+
+.AboutUsBody li:last-child {
+  border-top: 1px solid gray;
+  padding-top: 10px;
+}

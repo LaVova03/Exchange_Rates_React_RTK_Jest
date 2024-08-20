@@ -1,0 +1,50 @@
+table,
+th,
+td {
+  border: 1px solid grey;
+  text-align: center;
+  background: rgb(70, 69, 69);
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  width: 100px;
+}
+
+td {
+  color: rgb(145, 230, 18);
+}
+
+h3 {
+  animation: changeColor 4s infinite;
+}
+
+@keyframes changeColor {
+  0% {
+    color: red;
+  }
+
+  25% {
+    color: blue;
+  }
+
+  50% {
+    color: green;
+  }
+
+  75% {
+    color: orange;
+  }
+
+  100% {
+    color: red;
+  }
+}
+
+@media (max-width: 900px) {
+  .courses {
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,5 @@
+.AboutUs {
+  display: flex;
+  min-height: 50vh;
+  justify-content: center;
+}

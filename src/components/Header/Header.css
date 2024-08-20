@@ -1,0 +1,217 @@
+.header-wrap {
+  position: relative;
+  min-height: 80px;
+}
+
+.header-wrap > div {
+  display: none;
+  display: flex;
+  position: absolute;
+  left: 0;
+  height: 80px;
+  width: 100vw;
+  border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  -ms-border-radius: 0 0 10px 10px;
+  -o-border-radius: 0 0 10px 10px;
+  background-color: rgb(207, 207, 207);
+}
+
+.header-wrap > div > img {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80px;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.burger-icon {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50px;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: inherit;
+  border: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.burger-iconactive {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50px;
+  background: none;
+  border: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.burger-iconactive .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-10px, 10px);
+  -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+  -moz-transform: rotate(-45deg) translate(-10px, 10px);
+  -ms-transform: rotate(-45deg) translate(-10px, 10px);
+  -o-transform: rotate(-45deg) translate(-10px, 10px);
+}
+
+.burger-iconactive .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-iconactive .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-10px, -10px);
+  -webkit-transform: rotate(45deg) translate(-10px, -10px);
+  -moz-transform: rotate(45deg) translate(-10px, -10px);
+  -ms-transform: rotate(45deg) translate(-10px, -10px);
+  -o-transform: rotate(45deg) translate(-10px, -10px);
+}
+
+.bar {
+  width: 52px;
+  height: 8px;
+  border-radius: 10px;
+  background: rgb(0, 177, 0);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.burger-icon:hover {
+  div {
+    background: rgb(0, 177, 0);
+  }
+}
+
+.Headeractive,
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(231, 231, 231);
+  height: 80px;
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-family: cursive;
+  border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  -ms-border-radius: 0 0 10px 10px;
+  -o-border-radius: 0 0 10px 10px;
+}
+
+.Headeractive li,
+.Header li {
+  position: relative;
+  height: max-content;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.Headeractive li::after,
+.Header li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: blue;
+  transition: width 0.3s ease;
+}
+
+.Headeractive li:hover::after,
+.Header li:hover::after {
+  width: 100%;
+}
+
+.link {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .burger-icon {
+    display: block;
+  }
+
+  .Headeractive,
+  .Header {
+    position: absolute;
+    z-index: 998;
+    right: -100%;
+    flex-direction: column;
+    height: max-content;
+    align-items: baseline;
+    opacity: 0.9;
+    width: 60%;
+    padding: 20px 0 20px 50px;
+    border-radius: 0 0 0 10px;
+    -webkit-border-radius: 0 0 0 10px;
+    -moz-border-radius: 0 0 0 10px;
+    -ms-border-radius: 0 0 0 10px;
+    -o-border-radius: 0 0 0 10px;
+    transition: 0.6s;
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
+  }
+
+  .Headeractive {
+    right: -20%;
+  }
+
+  .header-btn {
+    width: max-content;
+    height: max-content;
+    background-color: inherit;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .header-wrap {
+    width: 100%;
+    margin: 0 auto 20px;
+    padding: 0 50px;
+  }
+
+  .header-wrap > div {
+    display: block;
+  }
+
+  .header-wrap > div > img {
+    display: block;
+    margin: 0 auto;
+  }
+}

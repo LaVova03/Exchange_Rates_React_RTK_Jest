@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "jsx": "react",
+    "checkJs": false,
+    "types": ["jest"]
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "tests/**/*.js",
+    "src/custom.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}
