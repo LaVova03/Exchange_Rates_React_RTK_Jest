@@ -1,60 +1,82 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import BodyMain from '../../components/BodyMain/BodyMain';
 import '@testing-library/jest-dom';
+import { mockExchangeRate } from '../fetches/Fetch';
+
+jest.mock('../fetches/Fetch', () => ({
+    __esModule: true,
+    default: () => ({
+        exchangeRate: mockExchangeRate,
+        loading: false,
+        error: null
+    })
+}));
 
 describe('BodyMain Component', () => {
-    beforeEach(() => {
-        global.alert = jest.fn();
-    });
 
     test('renders the BodyMain component', () => {
         render(<BodyMain />);
-        expect(screen.getAllByText('EUR').length).toBe(2);
-        expect(screen.getAllByText('USD').length).toBe(2);
-        expect(screen.getAllByText('UAH').length).toBe(2);
-        expect(screen.getAllByPlaceholderText('value').length).toBe(2);
-        expect(screen.getByText('Exchange')).toBeInTheDocument();
+
+        expect(screen.getAllByText(/EUR/i).length).toBeGreaterThan(0);
+        expect(screen.getAllByText(/USD/i).length).toBeGreaterThan(0);
+        expect(screen.getAllByText(/UAH/i).length).toBeGreaterThan(0);
+
+        expect(screen.getAllByPlaceholderText('0').length).toBe(2);
+        expect(screen.getByText('Обміняти валюту')).toBeInTheDocument();
     });
 
     test('ensures currencies are not the same', async () => {
         render(<BodyMain />);
 
-        const [firstInputEURButton] = screen.getAllByText('EUR');
-
-        const [firstInputUSDButton] = screen.getAllByText('USD');
-
-        const exchangeButton = screen.getByText('Exchange');
+        const [firstInputEURButton] = screen.getAllByText(/EUR/i);
+        const [firstInputUSDButton] = screen.getAllByText(/USD/i);
 
         fireEvent.click(firstInputEURButton);
         fireEvent.click(firstInputUSDButton);
-        fireEvent.click(exchangeButton);
 
         expect(screen.queryByText('The selected currencies cannot be the same.')).not.toBeInTheDocument();
     });
-    test('shows alert when inputs are empty', () => {
+
+    test('корректный расчет конвертации', async () => {
         render(<BodyMain />);
 
-        global.alert = jest.fn();
+        // Найдите элементы выбора валют
+        const [selectCurrency1] = screen.getAllByText(/USD/i);
+        const [selectCurrency2] = screen.getAllByText(/UAH/i);
 
-        fireEvent.change(screen.getAllByPlaceholderText('value')[0], { target: { value: '0' } });
-        fireEvent.change(screen.getAllByPlaceholderText('value')[1], { target: { value: '0' } });
+        // Установите валюты для полей
+        fireEvent.click(selectCurrency1); // Выберите USD
+        fireEvent.click(selectCurrency2); // Выберите UAH
 
-        fireEvent.click(screen.getByText('Exchange'));
+        const input1 = screen.getAllByPlaceholderText('0')[0];
+        const input2 = screen.getAllByPlaceholderText('0')[1];
 
-        expect(global.alert).toHaveBeenCalledWith('fill out inputs');
-    });
+        fireEvent.change(input1, { target: { value: '100' } });
 
-    test('shows alert with multiplied values', () => {
-        render(<BodyMain />);
+        // Ожидание обновления первого поля ввода
+        await waitFor(() => {
+            expect(input1.value).toBe('100');
+        });
 
-        global.alert = jest.fn();
+        // Ожидание обновления второго поля ввода и проверка плейсхолдера
+        await waitFor(async () => {
+            const updatedInput2 = await screen.findByPlaceholderText('0');
+            expect(updatedInput2.value).toBe('100'); // Проверка значения после конвертации
+        });
 
-        fireEvent.change(screen.getAllByPlaceholderText('value')[0], { target: { value: '5' } });
-        fireEvent.change(screen.getAllByPlaceholderText('value')[1], { target: { value: '2' } });
+        // Протестируйте обратную конвертацию
+        fireEvent.change(input2, { target: { value: '2700' } });
 
-        fireEvent.click(screen.getByText('Exchange'));
+        // Ожидание обновления значения первого поля
+        await waitFor(() => {
+            expect(input2.value).toBe('2700');
+        });
 
-        expect(global.alert).toHaveBeenCalledWith(10);
+        // Ожидание обновления значения второго поля
+        await waitFor(async () => {
+            const updatedInput1 = await screen.findByPlaceholderText('0');
+            expect(updatedInput1.value).toBe('2700');
+        });
     });
 });

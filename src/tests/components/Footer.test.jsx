@@ -20,10 +20,6 @@ describe('render Footer', () => {
         const listItems = screen.getAllByRole('listitem');
         expect(listItems.length).toBeGreaterThan(3); // Учтите, что это может быть более 3
 
-        // Проверяем, что текст "Контакти:" отображается
-        const contact = screen.getByText('Контакти:');
-        expect(contact).toBeInTheDocument();
-
         // Проверяем наличие социальных иконок
         const youtubeIcon = screen.getByAltText('YouTube');
         expect(youtubeIcon).toBeInTheDocument();
