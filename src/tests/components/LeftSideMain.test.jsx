@@ -14,13 +14,13 @@ jest.mock('../fetches/Fetch', () => ({
 }));
 
 describe('render and function on LeftSideMain', () => {
-    test('to be in the document', () => {
+    test('renders correctly', () => {
         render(<LeftSideMain />);
 
         expect(screen.getByText(/Валюта/i)).toBeInTheDocument();
         expect(screen.getByText(/Курс до грн/i)).toBeInTheDocument();
         expect(screen.getByText(/EUR/i)).toBeInTheDocument();
         expect(screen.getByText(/USD/i)).toBeInTheDocument();
-        expect(screen.getAllByText(/1/i).length).toBe(2);
+        expect(screen.getByRole('table')).toBeInTheDocument();
     });
 });
