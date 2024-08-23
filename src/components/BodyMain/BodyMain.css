@@ -94,6 +94,12 @@ h1 {
   font-size: 40px;
 }
 
+@media (max-width: 1024px) {
+  .Conversion-bckg {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .custom-number-input input {
     width: 70vw;
