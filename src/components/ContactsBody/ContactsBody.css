@@ -1,5 +1,6 @@
 .ContactsBody {
   display: flex;
+  width: 70%;
   flex-direction: column;
   background: rgb(70, 69, 69);
   color: white;
