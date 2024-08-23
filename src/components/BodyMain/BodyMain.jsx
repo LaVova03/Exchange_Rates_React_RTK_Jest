@@ -6,6 +6,7 @@ import Ukr from '../../assets/Ukr.webp';
 import { API_URL } from '../../constants';
 import useFetch from '../../fetches/Fetch';
 import { useTranslation } from 'react-i18next';
+import { motion } from "framer-motion";
 
 const BodyMain = () => {
 
@@ -80,8 +81,18 @@ const BodyMain = () => {
         setInputValue('');
     }
 
+    const list = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: -1000 },
+    }
+
     return (
-        <div className='Conversion'>
+        <motion.div
+            className='Conversion'
+            initial="hidden"
+            animate="visible"
+            variants={list}
+        >
             <h1>{t('Обміняти валюту')}</h1>
             <div className="custom-number-input">
                 <input type="text" value={inputValue2 ? '' : inputValue} onChange={handleInput1Change} placeholder={results.result2 ? results.result2.toFixed(2) : 0} />
@@ -105,7 +116,7 @@ const BodyMain = () => {
                     : selectedCurrency.select2 === 'eur' ? Eur
                         : selectedCurrency.select2 === 'uah' ? Ukr : null} alt="logo" />
             </div>
-        </div >
+        </motion.div >
     )
 };
 

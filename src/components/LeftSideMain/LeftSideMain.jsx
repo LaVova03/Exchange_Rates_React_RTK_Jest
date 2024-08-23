@@ -3,6 +3,7 @@ import React from 'react';
 import { API_URL } from '../../constants';
 import useFetch from '../../fetches/Fetch';
 import { useTranslation } from 'react-i18next';
+import { motion } from "framer-motion";
 
 function LeftSideMain() {
 
@@ -10,8 +11,18 @@ function LeftSideMain() {
 
     const { exchangeRate } = useFetch(API_URL);
 
+    const list = {
+        visible: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, x: -1000 },
+    }
+
     return (
-        <table className='courses'>
+        <motion.table
+            className='courses'
+            initial="hidden"
+            animate="visible"
+            variants={list}
+        >
             <thead>
                 <tr>
                     <th><h3>{t('Валюта')}</h3></th>
@@ -28,7 +39,7 @@ function LeftSideMain() {
                     <td>{exchangeRate.usd}</td>
                 </tr>
             </tbody>
-        </table>
+        </motion.table>
     );
 }
 
