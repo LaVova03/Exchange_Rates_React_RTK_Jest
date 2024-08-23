@@ -10,6 +10,15 @@
   border-radius: 10px;
 }
 
+.Conversion-bckg {
+  position: absolute;
+  z-index: -1;
+  width: max-content;
+  animation: changeColor 4s infinite;
+  font-size: 22px;
+  font-weight: 600;
+}
+
 .custom-number-input {
   position: relative;
 }

@@ -86,6 +86,17 @@ const BodyMain = () => {
         hidden: { opacity: 0, y: -1000 },
     }
 
+    const text = {
+        visible: { x: ['-27vw', '27vw', '-27vw'], },
+    };
+
+    const date = new Date().toLocaleDateString('uk-UA', {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    });
+
     return (
         <motion.div
             className='Conversion'
@@ -93,6 +104,20 @@ const BodyMain = () => {
             animate="visible"
             variants={list}
         >
+            <motion.div
+                className='Conversion-bckg'
+                initial={{ x: 0 }}
+                animate="visible"
+                variants={text}
+                transition={{
+                    delay: 1,
+                    duration: 5,
+                    repeat: Infinity,
+                    repeatType: "loop"
+                }}
+            >
+                {date}
+            </motion.div>
             <h1>{t('Обміняти валюту')}</h1>
             <div className="custom-number-input">
                 <input type="text" value={inputValue2 ? '' : inputValue} onChange={handleInput1Change} placeholder={results.result2 ? results.result2.toFixed(2) : 0} />
