@@ -23,13 +23,15 @@
   padding-top: 10px;
 }
 
+@media (max-width: 1024px) {
+  .RulesBody li {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+}
+
 @media (max-width: 768px) {
   .rules {
     width: 90vw;
     margin: 0 auto;
-  }
-
-  .RulesBody li {
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 }

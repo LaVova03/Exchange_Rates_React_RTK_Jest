@@ -45,6 +45,12 @@
   justify-content: center;
 }
 
+@media (max-width: 1024px) {
+  .ContactsBody li {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+}
+
 @media (max-width: 768px) {
   .ContactsBody {
     padding: 0 20px 20px;
@@ -60,6 +66,5 @@
     border-right: none;
     letter-spacing: 1.5px;
     margin: 0 0 5px 0;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 }

@@ -24,7 +24,7 @@
   margin: 20px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .BodySales li {
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
