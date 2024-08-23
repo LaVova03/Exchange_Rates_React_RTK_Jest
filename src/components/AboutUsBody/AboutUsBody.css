@@ -22,3 +22,9 @@
   border-top: 1px solid gray;
   padding-top: 10px;
 }
+
+@media (max-width: 768px) {
+  .AboutUsBody li {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+}

@@ -28,4 +28,8 @@
     width: 90vw;
     margin: 0 auto;
   }
+
+  .RulesBody li {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
 }

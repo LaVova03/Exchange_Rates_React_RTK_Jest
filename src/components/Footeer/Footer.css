@@ -85,4 +85,9 @@
   .Footer ul:nth-of-type(2) {
     display: none;
   }
+
+  .Footer ul:nth-of-type(2) li button,
+  .Footer li {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
 }
